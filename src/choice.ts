@@ -65,7 +65,8 @@ export const choice = (
     // Await the response
     let collected;
     try {
-      collected = await message.awaitReactions(_getFilter('choice', options), {
+      collected = await message.awaitReactions({
+        filter: _getFilter('choice', options),
         time: options.timeout,
         max: 1,
         errors: ['time'],

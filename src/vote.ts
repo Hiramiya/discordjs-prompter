@@ -47,10 +47,10 @@ export const vote = (
     };
 
     // Await for the reactions
-    const collected = await message.awaitReactions(
-      _getFilter('vote', options),
-      opt,
-    );
+    const collected = await message.awaitReactions({
+      filter: _getFilter('vote', options),
+      time: opt.time
+    });
 
     // Delete message after collecting
     if (options.deleteMessage && !(channel instanceof DMChannel)) {

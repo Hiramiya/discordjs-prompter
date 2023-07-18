@@ -41,7 +41,8 @@ exports.reaction = (channel, options = {
                 .catch();
             // Await response
             message
-                .awaitReactions(getFilter_1._getFilter('reaction', options), {
+                .awaitReactions({
+                filter: getFilter_1._getFilter('reaction', options),
                 max: 1,
                 time: options.timeout,
                 errors: ['time'],

@@ -44,7 +44,10 @@ exports.vote = (channel, options) => {
             time: options.timeout,
         };
         // Await for the reactions
-        const collected = yield message.awaitReactions(getFilter_1._getFilter('vote', options), opt);
+        const collected = yield message.awaitReactions({
+            filter: getFilter_1._getFilter('vote', options),
+            time: opt.time
+        });
         // Delete message after collecting
         if (options.deleteMessage && !(channel instanceof discord_js_1.DMChannel)) {
             yield message.delete();

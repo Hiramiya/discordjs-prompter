@@ -50,7 +50,8 @@ export const message = (
     channel.send(options.question).then((msg: Message | Message[]) => {
       const message = msg instanceof Array ? msg[0] : msg;
       channel
-        .awaitMessages(_getFilter('message', options), {
+        .awaitMessages({
+          filter: _getFilter('message', options),
           max: options.max,
           time: options.timeout,
           errors: ['time'],

@@ -60,7 +60,8 @@ export const reaction = (
 
       // Await response
       message
-        .awaitReactions(_getFilter('reaction', options), {
+        .awaitReactions({
+          filter: _getFilter('reaction', options),
           max: 1,
           time: options.timeout,
           errors: ['time'],

@@ -54,7 +54,8 @@ exports.choice = (channel, options) => {
         // Await the response
         let collected;
         try {
-            collected = yield message.awaitReactions(getFilter_1._getFilter('choice', options), {
+            collected = yield message.awaitReactions({
+                filter: getFilter_1._getFilter('choice', options),
                 time: options.timeout,
                 max: 1,
                 errors: ['time'],
